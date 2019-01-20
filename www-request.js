@@ -72,6 +72,10 @@ module.exports = function (RED) {
         encoding: null,
       };
 
+      if (msg.additionalRequestOptions) {
+        opts = Object.assign({}, opts, msg.additionalRequestOptions);
+      }
+
       if (msg.headers) {
         for (var v in msg.headers) {
           if (msg.headers.hasOwnProperty(v)) {
